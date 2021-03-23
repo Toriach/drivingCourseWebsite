@@ -14,173 +14,7 @@
         <!-- Theme style -->
         <link rel="stylesheet" href="dist/css/adminlte.min.css">
 
-        <style>
-            body {font-family: Arial, Helvetica, sans-serif;}
-
-            /* Full-width input fields */
-            input[type=text], input[type=password] {
-                width: 100%;
-                padding: 12px 20px;
-                margin: 8px 0;
-                display: inline-block;
-                border: 1px solid #ccc;
-                box-sizing: border-box;
-            }
-
-            /* Set a style for all buttons */
-            button {
-                background-color: #4CAF50;
-                color: white;
-                padding: 14px 20px;
-                margin: 8px 0;
-                border: none;
-                cursor: pointer;
-                width: 100%;
-            }
-
-            button:hover {
-                opacity: 0.8;
-            }
-
-            /* Extra styles for the cancel button */
-            .cancelbtn {
-                width: auto;
-                padding: 10px 18px;
-                background-color: #f44336;
-            }
-
-            /* Center the image and position the close button */
-            .imgcontainer {
-                text-align: center;
-                margin: 24px 0 12px 0;
-                position: relative;
-            }
-
-            img.avatar {
-                width: 40%;
-                border-radius: 50%;
-            }
-
-            .container {
-                padding: 16px;
-            }
-
-            span.psw {
-                float: right;
-                padding-top: 16px;
-            }
-
-            /* The Modal (background) */
-            .modal {
-                display: none; /* Hidden by default */
-                position: fixed; /* Stay in place */
-                z-index: 1; /* Sit on top */
-                left: 0;
-                top: 0;
-                width: 100%; /* Full width */
-                height: 100%; /* Full height */
-                overflow: auto; /* Enable scroll if needed */
-                background-color: rgb(0,0,0); /* Fallback color */
-                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-                padding-top: 60px;
-            }
-
-            /* Modal Content/Box */
-            .modal-content {
-                background-color: #fefefe;
-                margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-                border: 1px solid #888;
-                width: 30%; /* Could be more or less, depending on screen size */
-            }
-
-            /* The Close Button (x) */
-            .close {
-                position: absolute;
-                right: 25px;
-                top: 0;
-                color: #000;
-                font-size: 35px;
-                font-weight: bold;
-            }
-
-            .close:hover,
-            .close:focus {
-                color: red;
-                cursor: pointer;
-            }
-
-            /* Add Zoom Animation */
-            .animate {
-                -webkit-animation: animatezoom 0.6s;
-                animation: animatezoom 0.6s
-            }
-
-            @-webkit-keyframes animatezoom {
-                from {-webkit-transform: scale(0)} 
-                to {-webkit-transform: scale(1)}
-            }
-
-            @keyframes animatezoom {
-                from {transform: scale(0)} 
-                to {transform: scale(1)}
-            }
-
-            /* Change styles for span and cancel button on extra small screens */
-            @media screen and (max-width: 300px) {
-                span.psw {
-                    display: block;
-                    float: none;
-                }
-                .cancelbtn {
-                    width: 100%;
-                }
-            }
-
-
-
-
-
-
-
-            /* squere buttons */
-
-            .btn-squared-default
-            {
-                width: 250px !important;
-                height: 250px !important;
-                font-size: 10px;
-                border-radius: 25px;
-                margin: 25px;
-            }
-
-            .btn-squared-default:hover
-            {
-                border: 3px solid white;
-                font-weight: 800;
-            }
-
-            .btn-squared-default-plain
-            {
-                width: 100px !important;
-                height: 100px !important;
-                font-size: 10px;
-            }
-
-            .btn-squared-default-plain:hover
-            {
-                border: 0px solid white;
-            }
-
-
-            /* random stuff test area*/
-
-            .h2MainContentTitle{
-                margin-top: 20px;
-                margin-bottom: 20px;
-            }
-
-
-        </style>
+        <link rel="stylesheet" href="css/mainCss.css">
 
     </head>
 
@@ -210,24 +44,24 @@
 
                 <!-- Right navbar links -->
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Kontakt</a>
+                    <li class="nav-item rightNavBar">
+                        <a href="#" class="nav-link" onclick="document.getElementById('contactPopup').style.display='block'" style="width:auto;">Kontakt</a>
                     </li>
 
                     <li class="nav-item">
 
-                        <button type="button" class="btn btn-default" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+                        <button type="button" class="btn btn-default" onclick="document.getElementById('loginPopup').style.display='block'" style="width:auto;">Login</button>
 
                     </li>
 
                 </ul>
 
 
-                <div id="id01" class="modal">
+                <div id="loginPopup" class="modal">
 
                     <form class="modal-content animate" action="/action_page.php" method="post">
                         <div class="imgcontainer">
-                            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <span onclick="document.getElementById('loginPopup').style.display='none'" class="close" title="Close Modal">&times;</span>
                             <h6>Logowanie dla personelu szkoły</h6>
                         </div>
 
@@ -245,45 +79,43 @@
                         </div>
 
                         <div class="container" style="background-color:#f1f1f1">
-                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                            <button type="button" onclick="document.getElementById('loginPopup').style.display='none'" class="cancelbtn">Cancel</button>
                             <span class="psw">Forgot <a href="#">password?</a></span>
                         </div>
                     </form>
                 </div>
 
-                <script>
-                    // Get the modal
-                    var modal = document.getElementById('id01');
 
-                    // When the user clicks anywhere outside of the modal, close it
-                    window.onclick = function(event) {
-                        if (event.target == modal) {
-                            modal.style.display = "none";
-                        }
-                    }
-                </script>
+                <div id="contactPopup" class="modal">
 
+                    <form class="modal-content animate" action="/action_page.php" method="post">
+                        <div class="imgcontainer">
+                            <span onclick="document.getElementById('contactPopup').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <h6>Kontakt<hr></h6>
+                        </div>
+                        <div class="container-fluid">
+                            <ul  style="list-style-type:none;">
+                                <li>
+                                    <h4>Telefon: 123-456-789<hr></h4>
+                                </li>
+                                <li>
+                                    <h4>Email: nazwaSzkoły@domain.com<hr></h4>
+                                </li>
+                                <li>
+                                    <h4>hi some random contact<hr></h4>
+                                </li>
+                            </ul>
+                        </div>
 
+                        <div class="container" style="background-color:#f1f1f1">
+                            <button type="button" onclick="document.getElementById('contactPopup').style.display='none'" class="cancelbtn">Cancel</button>
 
-
-
+                        </div>
+                    </form>
+                </div>
 
             </nav>
             <!-- /.navbar -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             <!-- Main Sidebar Container -->
@@ -342,12 +174,10 @@
                         <div class="row justify-content-center">
 
                             <div class="col-xl-3 col-md-4 col-sm-6">
-                                <a href="#" class="btn btn-squared-default btn-primary">
-                                    <i class="fa fa-key fa-5x"></i>
-                                    <br />
-                                    primary
-                                    <br />
-                                    Button
+                                <a href="harmonogram.html" class="btn btn-squared-default btn-secondary">
+                                    <h2>Harmonogram</h2>
+                                    <br>
+                                    <i class="far fa-calendar-alt fa-10x"></i>    
                                 </a>
                             </div>
                             <div class="col-xl-3 col-md-4 col-sm-6">
@@ -368,7 +198,7 @@
                                     Button
                                 </a>
                             </div>
-                             <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="col-xl-3 col-md-4 col-sm-6">
                                 <a href="#" class="btn btn-squared-default btn-warning">
                                     <i class="fa fa-mobile fa-5x"></i>
                                     <br />
@@ -383,16 +213,14 @@
 
                         <div class="row justify-content-center">
 
-                            <div class="col-md-2">
-                                <a href="#" class="btn btn-squared-default btn-primary">
-                                    <i class="fa fa-key fa-5x"></i>
-                                    <br />
-                                    primary
-                                    <br />
-                                    Button
+                            <div class="col-xl-3 col-md-4 col-sm-6">
+                                <a href="#" class="btn btn-squared-default btn-success">
+                                    <h2>Harmonogram</h2>
+                                    <br>
+                                    <i class="far fa-calendar-alt fa-10x"></i>    
                                 </a>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-xl-3 col-md-4 col-sm-6">
                                 <a href="#" class="btn btn-squared-default btn-success">
                                     <i class="fa fa-money fa-5x"></i>
                                     <br />
@@ -401,7 +229,7 @@
                                     Button
                                 </a>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-xl-3 col-md-4 col-sm-6">
                                 <a href="#" class="btn btn-squared-default btn-warning">
                                     <i class="fa fa-mobile fa-5x"></i>
                                     <br />
@@ -410,7 +238,7 @@
                                     Button
                                 </a>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-xl-3 col-md-4 col-sm-6">
                                 <a href="#" class="btn btn-squared-default btn-warning">
                                     <i class="fa fa-mobile fa-5x"></i>
                                     <br />
@@ -478,5 +306,10 @@
         <script src="dist/js/demo.js"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="dist/js/pages/dashboard2.js"></script>
+        <!-- my stuff-->
+
+        <script src="js/modelPopUp.js"></script>
+        <script src="js/contactModelPopUp.js"></script>
+
     </body>
 </html>
